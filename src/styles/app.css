@@ -1,0 +1,22 @@
+/* src/styles/app.css */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  background: #4caf50;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.game-board {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}

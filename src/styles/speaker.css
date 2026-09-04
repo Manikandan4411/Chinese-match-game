@@ -1,0 +1,14 @@
+.speaker-btn {
+  background: transparent;
+  border: none;
+  color: #4caf50;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.speaker-btn:hover {
+  transform: scale(1.2);
+  color: #45a049;
+}
