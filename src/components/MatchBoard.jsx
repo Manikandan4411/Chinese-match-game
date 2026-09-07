@@ -5,7 +5,6 @@ import "../styles/board.css";
 import "../styles/card.css";
 import ScoreBoard from "./ScoreBoard";
 import NextRoundButton from "./NextRoundButton";
-import SpeakerButton from "./SpeakerButton";
 
 function MatchBoard() {
   const [chineseWords, setChineseWords] = useState([]);
@@ -37,9 +36,24 @@ function MatchBoard() {
     setWrongPair(null);
   };
 
+  // 🔊 Speak Chinese word
+  const speakChinese = (text) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "zh-CN";
+    speechSynthesis.speak(utterance);
+  };
+
   const handleChineseClick = (word) => {
     if (isMatched(word)) return;
     setSelectedChinese(word);
+    speakChinese(word.chinese); // 👈 play pronunciation automatically
+
+    // Add glow animation class
+    const el = document.getElementById(`chinese-${word.id}`);
+    if (el) {
+      el.classList.add("speaking");
+      setTimeout(() => el.classList.remove("speaking"), 600);
+    }
   };
 
   const handleEnglishClick = (word) => {
@@ -97,16 +111,18 @@ function MatchBoard() {
         <div className="column">
           <h2>Chinese</h2>
           {chineseWords.map((word) => (
-            <div key={word.id} className="word-row">
-              <button
-                className={getCardClass(word, "chinese")}
-                onClick={() => handleChineseClick(word)}
-                disabled={isMatched(word)}
-              >
-                {word.chinese}
-              </button>
-              <SpeakerButton text={word.chinese} />
-            </div>
+            <button
+              id={`chinese-${word.id}`}
+              key={word.id}
+              className={getCardClass(word, "chinese")}
+              onClick={() => handleChineseClick(word)}
+              disabled={isMatched(word)}
+            >
+              <div className="chinese-box">
+                <span className="chinese-text">{word.chinese}</span>
+                <span className="pinyin-text">{word.pinyin}</span>
+              </div>
+            </button>
           ))}
         </div>
 
