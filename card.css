@@ -1,0 +1,48 @@
+.card {
+  background: #fff;
+  color: #000;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Selected: blue border */
+.card.selected {
+  border-color: #2196f3;
+  box-shadow: 0 0 8px rgba(33, 150, 243, 0.5);
+}
+
+/* Correct: green background */
+.card.matched {
+  background: #4caf50;
+  color: #fff;
+  border-color: #4caf50;
+}
+
+/* Wrong: red background + shake animation */
+.card.wrong {
+  background: #f44336;
+  color: #fff;
+  border-color: #f44336;
+  animation: shake 0.3s ease-in-out;
+}
+
+/* Smooth transition */
+.card,
+.card.selected,
+.card.matched,
+.card.wrong {
+  transition: all 0.3s ease;
+}
+
+/* Shake keyframes */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
