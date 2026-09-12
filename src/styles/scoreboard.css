@@ -2,10 +2,10 @@
   background: #111;
   color: #fff;
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1rem;
   text-align: center;
   width: 90%;
-  max-width: 500px;
+  max-width: 400px;
   margin: 1rem auto;
 }
 
@@ -46,5 +46,5 @@
 
 .round-label {
   font-size: 0.9rem;
-  color: #ccc;
+  color: #4caf50;
 }

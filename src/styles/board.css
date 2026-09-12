@@ -177,3 +177,103 @@
     width: 120px;
   }
 }
+
+.progress-info {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.level-display {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.round-display {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.progress-bar {
+  width: 80%;
+  height: 12px;
+  background-color: #ddd;
+  border-radius: 6px;
+  margin: 10px auto;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #4b9cff;
+  transition: width 0.3s ease;
+}
+
+.completion-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers vertically */
+  align-items: center;     /* centers horizontally */
+  height: 100vh;           /* full viewport height */
+  text-align: center;
+}
+
+.completion-screen h1 {
+  font-size: 2rem;
+  color: #00cc66; /* bright green for celebration */
+  margin-bottom: 10px;
+}
+.completion-screen p {
+  font-size: 1.1rem;
+  color: #ddd;
+  margin: 5px 0;
+}
+
+.completion-buttons {
+  margin-top: 20px;
+}
+
+.completion-buttons button {
+  margin: 10px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #4b9cff;
+  color: white;
+  transition: 0.3s;
+}
+
+.completion-buttons button:hover {
+  background-color: #6bb5ff;
+}
+
+.back-button {
+  margin-top: 20px;
+  background-color: #4b9cff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.back-button:hover {
+  background-color: #6bb5ff;
+}
+
+.level-display {
+  color: #00cc66; /* or use #00cc66 for bright green */
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.round-display {
+  color: #00cc66; /* vivid green for round info */
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
