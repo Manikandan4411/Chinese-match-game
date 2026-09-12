@@ -1,51 +1,70 @@
 # 🇨🇳 Chinese Match Game
 
-A simple and interactive **Chinese-English vocabulary matching game** inspired by language-learning applications like Duolingo. Users match Chinese words with their correct English meanings through an interactive card-based game.
+A React-based Chinese-English vocabulary matching game inspired by language-learning apps like Duolingo. Learn Chinese vocabulary through interactive matching, randomized words, pronunciation, and level-based learning.
 
 ## 📌 Description
 
-**Chinese Match Game** is a frontend-based language learning project built with **React and Vite**. The application displays five randomly selected Chinese vocabulary words and their English translations in a shuffled order.
+Chinese Match Game is a frontend-based language learning application built with React and Vite. Users can select HSK Level 1 vocabulary ranges from 1–150 words and practice Chinese-English matching through interactive game rounds.
 
-Users can tap a Chinese word and then select its corresponding English meaning. Correct matches are highlighted in **green**, while incorrect matches are highlighted in **red**. The game also provides Chinese pronunciation using the browser's built-in **Speech Synthesis API**.
-
-The project is designed as **Phase 1** of a larger language-learning application. A backend, database, user progress tracking, and AI-powered learning features can be added in future phases.
+Each level displays five vocabulary pairs at a time. Users match Chinese words with their correct English meanings, receive green/red feedback, track their progress, and complete each level through multiple rounds.
 
 ## ✨ Features
 
-* 🇨🇳 Chinese → English vocabulary matching
-* 🎲 Randomly selected vocabulary
-* 🔀 Shuffled English answers
+* 🇨🇳 Chinese-English vocabulary matching
+* 📚 HSK Level 1 vocabulary (1–150 words)
+* 🎯 Seven vocabulary range selections
+* 🎲 Randomized vocabulary
+* 🔀 Shuffled English words
 * 🟢 Green feedback for correct matches
 * 🔴 Red feedback for incorrect matches
-* 🔊 Chinese word pronunciation
+* 🔊 Chinese pronunciation
 * ⭐ Score tracking
-* 📊 Round progress
-* 🔄 Next round functionality
-* 📱 Responsive design
-* ⚡ Fast development with React + Vite
+* 📊 Dynamic round progress bar
+* 🎮 Five-word matching rounds
+* 🔄 Play Again functionality
+* ← Back to HSK Levels button
+* 🎉 Level Completion screen
+* 📱 Responsive user interface
 
-## 🛠️ Tech Stack
+## 📚 HSK Level 1 Vocabulary Ranges
 
-* **React.js**
-* **Vite**
-* **JavaScript (ES6+)**
-* **HTML5**
-* **CSS3**
-* **Browser Speech Synthesis API**
-* **Git & GitHub**
+| Level   | Vocabulary Range | Rounds   |
+| ------- | ---------------- | -------- |
+| Level 1 | 1–20             | 4 rounds |
+| Level 2 | 21–40            | 4 rounds |
+| Level 3 | 41–60            | 4 rounds |
+| Level 4 | 61–80            | 4 rounds |
+| Level 5 | 81–100           | 4 rounds |
+| Level 6 | 101–120          | 4 rounds |
+| Level 7 | 121–150          | 6 rounds |
+
+Each round contains 5 vocabulary pairs.
 
 ## 🎮 How It Works
 
-1. The application selects **5 random Chinese-English vocabulary pairs**.
-2. Chinese words are displayed on the left.
-3. English translations are displayed on the right.
-4. English words are randomly shuffled.
-5. The user selects a Chinese word.
-6. The user selects its English meaning.
-7. The application checks whether the pair is correct.
-8. Correct matches turn **green**.
-9. Incorrect matches turn **red**.
-10. After matching all five pairs, the user can start the **next round**.
+1. Open the Chinese Match Game.
+2. Click **START GAME**.
+3. Select an HSK Level 1 vocabulary range.
+4. The application loads the selected vocabulary words.
+5. Chinese words and English translations are displayed in separate columns.
+6. English words are randomly shuffled.
+7. Select a Chinese word and its matching English meaning.
+8. Correct matches turn green.
+9. Incorrect matches turn red.
+10. Complete all five pairs to proceed to the next round.
+11. Track your round progress and score.
+12. Complete the selected level to view the final score.
+13. Choose PLAY AGAIN or BACK TO HSK LEVELS.
+
+## 🛠️ Tech Stack
+
+* React.js
+* Vite
+* JavaScript (ES6+)
+* HTML5
+* CSS3
+* Browser Speech Synthesis API
+* Git & GitHub
 
 ## 📂 Project Structure
 
@@ -64,7 +83,7 @@ chinese-match-game/
 │   │   └── SpeakerButton.jsx
 │   │
 │   ├── data/
-│   │   └── vocabulary.js
+│   │   └── vocabulary.jsx
 │   │
 │   ├── hooks/
 │   │   └── useShuffle.js
@@ -82,61 +101,105 @@ chinese-match-game/
 └── README.md
 ```
 
+*Note: Update the file names above if your actual project structure differs.*
+
 ## 🚀 Getting Started
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
 git clone <your-github-repository-url>
 ```
 
-### 2. Navigate to the project
+### 2. Navigate to the Project
 
 ```bash
 cd chinese-match-game
 ```
 
-### 3. Install dependencies
+### 3. Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 4. Start the development server
+### 4. Start the Development Server
 
 ```bash
 npm run dev
 ```
 
-Open the local URL shown in the terminal.
+Open the local development URL shown in the terminal.
+
+## 🔢 Vocabulary Range Logic
+
+The application uses zero-indexed JavaScript array slicing to load the correct vocabulary range.
+
+```javascript
+vocabulary.slice(0, 20);      // Words 1–20
+vocabulary.slice(20, 40);     // Words 21–40
+vocabulary.slice(40, 60);     // Words 41–60
+vocabulary.slice(60, 80);     // Words 61–80
+vocabulary.slice(80, 100);     // Words 81–100
+vocabulary.slice(100, 120);    // Words 101–120
+vocabulary.slice(120, 150);    // Words 121–150
+```
+
+## 🎯 Game Progress
+
+* Levels 1–6 contain 20 vocabulary words.
+* Each 20-word level contains 4 rounds.
+* Each round contains 5 vocabulary pairs.
+* Level 7 contains 30 vocabulary words.
+* Level 7 contains 6 rounds.
+* The progress bar updates dynamically as the user completes rounds.
+
+## 🎉 Level Completion
+
+After completing all rounds in a selected level, the application displays a Level Completion screen with:
+
+* Final score
+* Selected vocabulary range
+* PLAY AGAIN button
+* BACK TO HSK LEVELS button
+
+### PLAY AGAIN
+
+Restarts the same level from Round 1.
+
+### BACK TO HSK LEVELS
+
+Returns to the HSK Level 1 selection page and clears the current game state.
+
+### SCREENSHOTS
+
+Screenshots are uploaded.
 
 ## 🔮 Future Enhancements
 
-This project can be extended into a complete language-learning platform.
-
-### Phase 2 — Full Stack
+### Phase 2 — Full Stack Integration
 
 * Spring Boot REST API
 * PostgreSQL database
-* User registration/login
+* User registration and login
 * Vocabulary management
-* User scores
-* Learning progress
+* User progress tracking
 * XP and streak system
+* Persistent game scores
 
 ### Phase 3 — AI Features
 
-* AI-generated vocabulary
+* AI-generated Chinese vocabulary
 * AI-generated matching questions
 * Example sentence generation
 * AI language tutor
-* Personalized difficulty
-* AI-powered conversation practice
+* Personalized difficulty levels
+* Conversation practice
 
 ## 🎯 Project Goal
 
-The goal of this project is to create a simple, interactive language-learning experience while practicing **React development, JavaScript logic, UI interaction, and game-based learning concepts**.
+The goal of this project is to build an interactive Chinese language learning experience while practicing React development, JavaScript logic, state management, reusable components, and game-based learning concepts.
 
 ## 📄 License
 
-This project is created for **learning and portfolio purposes**.
+This project is created for learning and portfolio purposes.
