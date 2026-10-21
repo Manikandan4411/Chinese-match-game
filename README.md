@@ -200,6 +200,12 @@ Screenshots are uploaded.
 
 The goal of this project is to build an interactive Chinese language learning experience while practicing React development, JavaScript logic, state management, reusable components, and game-based learning concepts.
 
-## 📄 License
+## License
 
-This project is created for learning and portfolio purposes.
+Copyright © 2026 Manikandan S. All Rights Reserved.
+
+This Chinese Match Game project is available for viewing and personal educational reference only. Copying, modifying, redistributing, or commercially using the original source code and project materials without prior written permission is prohibited.
+
+Third-party components and resources remain subject to their respective licenses.
+
+See the [LICENSE](LICENSE) file for details.
